@@ -30,3 +30,7 @@ result transmission.
 
 **How it works:**
 ![image](https://github.com/user-attachments/assets/72759f19-adae-4ed6-bc7a-987e2c00eeac)
+
+**Matrix multiplication:**
+![image](https://github.com/user-attachments/assets/7b12b842-ac17-4859-a307-e447da6a99e0)
+
