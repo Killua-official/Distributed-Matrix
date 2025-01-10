@@ -7,7 +7,7 @@ services:
     ports:
       - '32181:32181'
       - '2888:2888'
-      - '5888:5888'
+      - '3888:3888'
     environment:
       ZOOKEEPER_SERVER_ID: 1
       ZOOKEEPER_CLIENT_PORT: 32181
