@@ -1,0 +1,47 @@
+kafka:
+  bootstrap-servers: localhost:9091,localhost:9093,localhost:9092
+  topics:
+    matrix-calculate: matrix-calculate
+    matrix-calculate-result: matrix-calculate-result
+
+spring:
+  application:
+    name: coordinator-service
+  kafka:
+    producer:
+      bootstrap-servers: ${kafka.bootstrap-servers}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      bootstrap-servers: ${kafka.bootstrap-servers}
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+server:
+  port: 8060
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+logging:
+  level:
+    org.springframework:
+      web: DEBUG
+      kafka: DEBUG
