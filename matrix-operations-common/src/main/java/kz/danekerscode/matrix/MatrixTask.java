@@ -55,4 +55,16 @@ public class MatrixTask implements Serializable {
     public void setColB(double[] colB) {
         this.colB = colB;
     }
+
+    public double computeDotProduct() {
+    if (rowA.length != colB.length) {
+        throw new IllegalArgumentException("RowA and ColB must have the same length");
+    }
+    double result = 0.0;
+    for (int i = 0; i < rowA.length; i++) {
+        result += rowA[i] * colB[i];
+    }
+    return result;
+}
+
 }
