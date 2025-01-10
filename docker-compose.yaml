@@ -117,6 +117,7 @@ services:
         max-size: "1m"
 
   broker-3:
+  
     platform: linux/amd64
     image: confluentinc/cp-kafka:7.5.2
     container_name: broker-3
