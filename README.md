@@ -1,5 +1,20 @@
 # Task 4: Distributed Matrix Operation Computaton
 
+**Topics:** 
+- Parallelism
+- Sockets
+- REST API
+
+**Description:**
+A distributed application for computing the product of two
+large matrices. Matrix parts are processed in parallel across different nodes, and
+results are transmitted to a central server. Metadata (computation time,
+nodes, resource usage) must are sent via REST API.
+
+**Architecture:**
+Include a diagram showing data distribution across nodes and
+result transmission.
+
 **Stack:**
 - Java
 - Kafka
